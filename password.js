@@ -14,3 +14,17 @@ $(document).ready(function(){
         }
     });
 });
+ $(document).ready(function () {
+        $("#odd").click(function () {
+          $("table tr:odd").css({
+            "background-color": "#00e673",
+            color: "white",
+          });
+        });
+        $("#even").click(function () {
+          $("table tr:even").css({
+            "background-color": "#b3b3cc",
+            color: "white",
+          });
+        });
+      });
