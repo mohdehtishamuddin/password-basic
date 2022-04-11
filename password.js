@@ -28,3 +28,18 @@ $(document).ready(function(){
           });
         });
       });
+      $(function() {
+        cuenta = 0;
+        txtArray = ["Car Details", "Smartphones are equipped with a QWERTY keypad."];
+        setInterval(function() {
+          cuenta++;
+          $("#test").fadeOut(100, function() {
+            $(this)
+              .text(txtArray[cuenta % txtArray.length])
+              .css('color', cuenta % 2 == 0 ? 'red' : 'blue')
+              .fadeIn(100);
+          });
+        }, 3000);
+      });
+  
+    
