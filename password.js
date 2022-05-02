@@ -41,5 +41,94 @@ $(document).ready(function(){
           });
         }, 3000);
       });
-  
+      $('#form').submit(function(){
+        if(!$("#form input[type=text]").val())
+        {
+          $("#form input[type=text]").addClass("empty");
+          alert("please fill this field");
+          return false;
+        }
+      });
+      $(function() {  
+        var Flowers = [  
+          "Lily",  
+          "Lotus",  
+          "Tulip",  
+          "Crocus",  
+          "Hyacinth",  
+          "Daisy",  
+          "Dandelion",  
+          "Orchid",  
+          "Cherry blossom",  
+          "Rose",  
+          "Bluebell",  
+          "Sunflower",  
+          "Daffodil",    
+        ];  
+        $( "#flower" ).autocomplete({  
+          source: Flowers  
+          
+        });  
+      });  
+      $(document).ready(function(){
+        $("#page").change(()=>{
+          var val = $("#page").val();
+        $("#price").empty();
+        if(val=="medium"){
+          $("#price").append("1300")
+        }
+        else{
+          $("#price").append("1000");
+        }
+      });
+      $("#note").change(()=>{
+        var val = $("#note").val();
+        $("#t_price").empty();
+        if(val=="lg"){
+          $("#t_price").append("1200");
+        }
+        else{
+          $("#t_price").append("1500");
+        }
+      });
+      });
+      $(document).ready(function(){
+        $("#p1").mouseout(function(){
+       // alert("click Me");
+      })
+      });
+
+var slider_img = document.querySelector('.slider-img');
+var images = ['a.jpg','b.jpg','c.jpg'];
+var i =0;
+function prev(){
+  if(i<=0) i = images.length;
+  i--;
+  return setImg();
+}
+function next(){
+  if(i>=images.length-1) i==-1;
+  i++;
+  return setImg();
+}
+function setImg(){
+  return slider_img.setAttribute('src','images/'+images[i]);
+};
+$(document).ready(function() {
+ 
+  $('#btn-add').click(function(){
+      $('#select-from option:selected').each( function() {
+              $('#select-to').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+          $(this).remove();
+      });
+  });
+  $('#btn-remove').click(function(){
+      $('#select-to option:selected').each( function() {
+          $('#select-from').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+          $(this).remove();
+      });
+  });
+
+});
+
     
