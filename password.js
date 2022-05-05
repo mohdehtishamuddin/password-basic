@@ -120,6 +120,7 @@ $(document).ready(function() {
       $('#select-from option:selected').each( function() {
               $('#select-to').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
           $(this).remove();
+          console.log("append");
       });
   });
   $('#btn-remove').click(function(){
