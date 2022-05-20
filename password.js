@@ -49,7 +49,9 @@ $(document).ready(function(){
           return false;
         }
       });
-      $(function() {  
+      // Suggestion to searching//
+       $(document).ready(function(){
+      // $(function() {  
         var Flowers = [  
           "Lily",  
           "Lotus",  
@@ -69,7 +71,9 @@ $(document).ready(function(){
           source: Flowers  
           
         });  
-      });  
+      });
+        
+      // Price Short //
       $(document).ready(function(){
         $("#page").change(()=>{
           var val = $("#page").val();
@@ -94,42 +98,80 @@ $(document).ready(function(){
       });
       $(document).ready(function(){
         $("#p1").mouseout(function(){
-       // alert("click Me");
+        // alert("click Me");
       })
       });
+ ///Image Slider //
 
-var slider_img = document.querySelector('.slider-img');
-var images = ['a.jpg','b.jpg','c.jpg'];
-var i =0;
-function prev(){
-  if(i<=0) i = images.length;
-  i--;
-  return setImg();
-}
-function next(){
-  if(i>=images.length-1) i==-1;
-  i++;
-  return setImg();
-}
-function setImg(){
-  return slider_img.setAttribute('src','images/'+images[i]);
-};
 $(document).ready(function() {
- 
-  $('#btn-add').click(function(){
-      $('#select-from option:selected').each( function() {
-              $('#select-to').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
-          $(this).remove();
-          console.log("append");
-      });
+let images = ['images/image1.png','images/image2.png','images/image3.png','images/image4.png'];
+
+let firstImage = 0;
+ let lastImage = images.length -1;
+ let currentImage = 0;
+
+let nextBtn  = document.getElementById('next');
+nextBtn.addEventListener('click',()=>{
+     let imageTag = document.getElementById('image');
+     currentImage++;
+     if(currentImage>=lastImage) {
+         currentImage = 3;
+     }
+     imageTag.src = images[currentImage];
+});
+
+//prev//
+let preBtn  = document.getElementById('prev');
+preBtn.addEventListener('click',()=>{
+     let imageTag = document.getElementById('image');
+     currentImage--;
+     if(currentImage<=firstImage) {
+        currentImage = 0;
+    }
+    imageTag.src = images[currentImage];
+});
+});
+   //Create List Of products with sub task //
+  $(document).ready(function() {
+    $('#pro').click(function() {
+      var content = $('#addList').val();
+      var category = 
+          '<li>' + content + '</li>'; 
+      $('#pro').append(category); 
   });
-  $('#btn-remove').click(function(){
-      $('#select-to option:selected').each( function() {
-          $('#select-from').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
-          $(this).remove();
+      $('#shirt').click(function() {
+          var content = $('#addList').val();
+          var category = 
+              '<li>' + content + '</li>'; 
+          $('#shirt').append(category); 
+      });
+       $('#trouser').click(function() {
+          var content = $('#addList').val();
+          var category = 
+              '<li>' + content + '</li>'; 
+          $('#trouser').append(category); 
+      });
+       $('#electronic').click(function() {
+          var content = $('#addList').val();
+          var category = 
+              '<li>' + content + '</li>'; 
+          $('#electronic').append(category); 
+      });
+       $('#mobile').click(function() {
+          var content = $('#addList').val();
+          var category = 
+              '<li>' + content + '</li>'; 
+          $('#mobile').append(category); 
+      });
+       $('#tab').click(function() {
+          var content = $('#addList').val();
+          var category = 
+          '<li>' + content + '</li>';
+          $('#tab').append(category);
+       
       });
   });
 
-});
+ 
 
     
